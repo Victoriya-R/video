@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videographer — Premium Portfolio</title>
+    <meta
+      name="description"
+      content="Персональный сайт видеографа: свадьбы, мероприятия, недвижимость."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="На главную">A. Videographer</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+        Меню
+      </button>
+      <nav class="nav">
+        <a href="#portfolio">Портфолио</a>
+        <a href="#services">Услуги</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#services">Услуги</a>
+      <a href="#packages">Пакеты</a>
+      <a href="#about">Обо мне</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Оставить заявку</a>
+    </div>
+
+    <main>
+      <section class="hero section">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Personal brand videography</p>
+          <h1>
+            Кинематографичная видеосъемка для <span>свадеб</span>,
+            <span>мероприятий</span> и <span>недвижимости</span>
+          </h1>
+          <p class="lead">
+            Лаконичный визуальный язык, уверенная подача и аккуратная работа с деталями — от
+            идеи до финального ролика.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacts">Обсудить съемку</a>
+            <a class="btn btn-ghost" href="#portfolio">Смотреть работы</a>
+          </div>
+        </div>
+        <div class="hero-video reveal">
+          <div class="video-frame">
+            <video muted autoplay loop playsinline poster="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80">
+              <source src="https://cdn.coverr.co/videos/coverr-wedding-day-8998/1080p.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="section directions reveal">
+        <h2>Направления</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Свадьбы</h3>
+            <p>Эмоциональная история дня без постановочной перегрузки.</p>
+          </article>
+          <article class="card">
+            <h3>Мероприятия</h3>
+            <p>Динамичные ролики с фокусом на атмосферу, бренд и людей.</p>
+          </article>
+          <article class="card">
+            <h3>Недвижимость</h3>
+            <p>Премиальная презентация объектов через кадр, ритм и свет.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="section-head reveal">
+          <h2>Портфолио</h2>
+          <p>Избранные проекты. Контент обновляется по мере публикации работ.</p>
+        </div>
+        <div class="filters reveal" role="tablist" aria-label="Фильтр портфолио">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="wedding">Свадьбы</button>
+          <button class="filter-btn" data-filter="event">Мероприятия</button>
+          <button class="filter-btn" data-filter="realty">Недвижимость</button>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card reveal" data-category="wedding">
+            <span>Свадьба</span>
+            <h3>Проект #01</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+          <article class="portfolio-card reveal" data-category="event">
+            <span>Мероприятие</span>
+            <h3>Проект #02</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+          <article class="portfolio-card reveal" data-category="realty">
+            <span>Недвижимость</span>
+            <h3>Проект #03</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+          <article class="portfolio-card reveal" data-category="wedding">
+            <span>Свадьба</span>
+            <h3>Проект #04</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+          <article class="portfolio-card reveal" data-category="event">
+            <span>Мероприятие</span>
+            <h3>Проект #05</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+          <article class="portfolio-card reveal" data-category="realty">
+            <span>Недвижимость</span>
+            <h3>Проект #06</h3>
+            <p>Место для описания кейса (контент будет добавлен позже).</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-head reveal">
+          <h2>Услуги</h2>
+          <p>Фокус на ценности, удобном процессе и прогнозируемом результате.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>Свадебная съемка</h3>
+            <p>
+              Внимание к атмосфере и деталям дня. От короткого highlights до полной истории
+              события.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Съемка мероприятий</h3>
+            <p>
+              Подходит для частных и корпоративных событий: промо, recap и контент для публикаций.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Съемка недвижимости</h3>
+            <p>
+              Видео для презентации объектов, агентств и девелоперских проектов с премиальной
+              подачей.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="section-head reveal">
+          <h2>Пакеты</h2>
+          <p>Структура пакетов формируется под задачу. Финальная стоимость рассчитывается индивидуально.</p>
+        </div>
+        <div class="grid-3">
+          <article class="price-card reveal">
+            <h3>Essential</h3>
+            <ul>
+              <li>Базовый объем съемки</li>
+              <li>1 камера</li>
+              <li>Короткий финальный ролик</li>
+            </ul>
+          </article>
+          <article class="price-card featured reveal">
+            <h3>Signature</h3>
+            <ul>
+              <li>Расширенный объем съемки</li>
+              <li>2 камеры / дополнительное покрытие</li>
+              <li>Основной фильм + short edit</li>
+            </ul>
+          </article>
+          <article class="price-card reveal">
+            <h3>Private</h3>
+            <ul>
+              <li>Индивидуальный формат под проект</li>
+              <li>Дополнительные опции и этапы</li>
+              <li>Персональный тайминг постпродакшна</li>
+            </ul>
+          </article>
+        </div>
+        <p class="muted reveal">*Заполните бриф, чтобы получить индивидуальный расчет.</p>
+      </section>
+
+      <section class="section split" id="about">
+        <div class="reveal">
+          <h2>Обо мне</h2>
+          <p>
+            Я видеограф и работаю в формате персонального бренда: веду проект от первой
+            консультации до передачи финальных файлов. В работе важны композиция, ритм, свет и
+            человеческая эмоция.
+          </p>
+          <p>
+            Съемка ведется на технику Sony. Техническая база — инструмент для стабильного,
+            качественного результата, но в центре всегда история и эстетика кадра.
+          </p>
+        </div>
+        <div class="author-quote reveal">
+          <p>«Спокойная коммуникация, четкий процесс и визуальный результат, который выглядит актуально и дорого.»</p>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-head reveal">
+          <h2>Процесс работы</h2>
+          <p>Прозрачные этапы, чтобы клиенту было спокойно на каждом шаге.</p>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><strong>1.</strong> Обсуждение задачи и формата съемки.</li>
+          <li class="reveal"><strong>2.</strong> Подготовка: бриф, тайминг, ключевые акценты.</li>
+          <li class="reveal"><strong>3.</strong> Съемка в согласованный день.</li>
+          <li class="reveal"><strong>4.</strong> Монтаж и цветокоррекция.</li>
+          <li class="reveal"><strong>5.</strong> Согласование и корректировки в рамках пакета.</li>
+          <li class="reveal"><strong>6.</strong> Передача финального материала.</li>
+        </ol>
+      </section>
+
+      <section class="section zones" id="zones">
+        <div class="section-head reveal">
+          <h2>Зоны выезда</h2>
+          <p>Базовая география и условия будут уточнены после заполнения реальных данных.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card reveal">
+            <h3>Базовый город / регион</h3>
+            <p>[Заполняется заказчиком]</p>
+          </article>
+          <article class="card reveal">
+            <h3>Выезд в другие города</h3>
+            <p>[Доступен, условия согласуются индивидуально]</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head reveal">
+          <h2>FAQ</h2>
+          <p>Структура вопросов, которую легко дополнить финальными ответами.</p>
+        </div>
+        <div class="faq-list">
+          <details class="reveal"><summary>Какие сроки готовности материала?</summary><p>[Ответ будет добавлен.]</p></details>
+          <details class="reveal"><summary>Как проходит бронирование даты?</summary><p>[Ответ будет добавлен.]</p></details>
+          <details class="reveal"><summary>Сколько правок включено?</summary><p>[Ответ будет добавлен.]</p></details>
+          <details class="reveal"><summary>Работаете ли вы с выездом?</summary><p>[Ответ будет добавлен.]</p></details>
+          <details class="reveal"><summary>Как подготовиться к съемке?</summary><p>[Ответ будет добавлен.]</p></details>
+        </div>
+      </section>
+
+      <section class="section cta reveal">
+        <h2>Готовы обсудить ваш проект?</h2>
+        <p>Заполните короткий бриф — вернусь с предложением по формату съемки.</p>
+        <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
+      </section>
+
+      <section class="section" id="contacts">
+        <div class="section-head reveal">
+          <h2>Контакты и бриф</h2>
+          <p>Лаконичная форма для первой заявки.</p>
+        </div>
+        <form class="contact-form reveal">
+          <label>Имя<input type="text" name="name" placeholder="Ваше имя" required /></label>
+          <label>Способ связи<input type="text" name="contact" placeholder="Телефон / Telegram / Email" required /></label>
+          <label>Тип съемки
+            <select name="type" required>
+              <option value="">Выберите направление</option>
+              <option>Свадьба</option>
+              <option>Мероприятие</option>
+              <option>Недвижимость</option>
+            </select>
+          </label>
+          <label>Дата<input type="date" name="date" /></label>
+          <label>Место<input type="text" name="location" placeholder="Город / площадка" /></label>
+          <label class="full">Комментарий
+            <textarea name="comment" rows="5" placeholder="Кратко опишите задачу"></textarea>
+          </label>
+          <button class="btn btn-primary full" type="submit">Отправить заявку</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> A. Videographer</p>
+      <div>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
