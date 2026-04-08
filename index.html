@@ -55,6 +55,13 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacts">Обсудить съемку</a>
             <a class="btn btn-ghost" href="#portfolio">Смотреть работы</a>
+            <a
+              class="btn btn-social btn-telegram"
+              href="https://t.me/YOUR_TELEGRAM_USERNAME"
+              target="_blank"
+              rel="noreferrer"
+              >Написать в Telegram</a
+            >
           </div>
         </div>
         <div class="hero-video reveal">
@@ -259,7 +266,16 @@
       <section class="section cta reveal">
         <h2>Готовы обсудить ваш проект?</h2>
         <p>Заполните короткий бриф — вернусь с предложением по формату съемки.</p>
-        <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
+          <a
+            class="btn btn-social btn-whatsapp"
+            href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+            target="_blank"
+            rel="noreferrer"
+            >Написать в WhatsApp</a
+          >
+        </div>
       </section>
 
       <section class="section" id="contacts">
@@ -267,7 +283,23 @@
           <h2>Контакты и бриф</h2>
           <p>Лаконичная форма для первой заявки.</p>
         </div>
-        <form class="contact-form reveal">
+        <div class="contact-quick-actions reveal">
+          <a
+            class="btn btn-social btn-telegram"
+            href="https://t.me/YOUR_TELEGRAM_USERNAME"
+            target="_blank"
+            rel="noreferrer"
+            >Написать в Telegram</a
+          >
+          <a
+            class="btn btn-social btn-whatsapp"
+            href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+            target="_blank"
+            rel="noreferrer"
+            >Написать в WhatsApp</a
+          >
+        </div>
+        <form class="contact-form reveal" action="send.php" method="post" novalidate>
           <label>Имя<input type="text" name="name" placeholder="Ваше имя" required /></label>
           <label>Способ связи<input type="text" name="contact" placeholder="Телефон / Telegram / Email" required /></label>
           <label>Тип съемки
@@ -283,7 +315,13 @@
           <label class="full">Комментарий
             <textarea name="comment" rows="5" placeholder="Кратко опишите задачу"></textarea>
           </label>
+          <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="form_time" id="form-time" value="" />
           <button class="btn btn-primary full" type="submit">Отправить заявку</button>
+          <p class="form-note full">
+            Отправляя форму, вы соглашаетесь на обработку данных для обратной связи.
+          </p>
+          <p class="form-status full" aria-live="polite"></p>
         </form>
       </section>
     </main>
@@ -291,7 +329,7 @@
     <footer class="footer">
       <p>© <span id="year"></span> A. Videographer</p>
       <div>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="mailto:YOUR_RECEIVING_EMAIL">YOUR_RECEIVING_EMAIL</a>
         <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
       </div>
     </footer>

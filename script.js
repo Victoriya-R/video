@@ -51,7 +51,87 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.querySelector('.contact-form')?.addEventListener('submit', (event) => {
+const contactForm = document.querySelector('.contact-form');
+const formStatus = document.querySelector('.form-status');
+const formTimeInput = document.getElementById('form-time');
+
+if (formTimeInput) {
+  formTimeInput.value = String(Date.now());
+}
+
+const setFormStatus = (message, type) => {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.className = `form-status show ${type === 'success' ? 'is-success' : 'is-error'}`;
+};
+
+const getErrorText = (code) => {
+  const map = {
+    missing_required: 'Заполните обязательные поля: имя, способ связи и тип съемки.',
+    spam_detected: 'Отправка отклонена. Пожалуйста, попробуйте снова чуть позже.',
+    invalid_request: 'Некорректная отправка формы. Обновите страницу и попробуйте еще раз.',
+    server_error: 'Не удалось отправить заявку. Напишите в Telegram или WhatsApp, пока мы исправляем форму.',
+  };
+
+  return map[code] || map.server_error;
+};
+
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('ok') === 'true' || urlParams.get('ok') === '1') {
+  setFormStatus('Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.', 'success');
+  window.history.replaceState({}, '', `${window.location.pathname}${window.location.hash || '#contacts'}`);
+} else if (urlParams.get('error')) {
+  setFormStatus(getErrorText(urlParams.get('error')), 'error');
+  window.history.replaceState({}, '', `${window.location.pathname}${window.location.hash || '#contacts'}`);
+}
+
+contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  alert('Спасибо! Заявка принята. На сайте сейчас используется демо-форма.');
+
+  const requiredFields = ['name', 'contact', 'type'];
+  const hasEmptyRequired = requiredFields.some((fieldName) => {
+    const field = contactForm.elements.namedItem(fieldName);
+    return !field || !String(field.value || '').trim();
+  });
+
+  if (hasEmptyRequired) {
+    setFormStatus('Пожалуйста, заполните обязательные поля перед отправкой.', 'error');
+    return;
+  }
+
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const initialButtonText = submitButton?.textContent;
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправка...';
+  }
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: new FormData(contactForm),
+    });
+
+    const payload = await response.json().catch(() => ({}));
+    if (response.ok && payload.ok) {
+      setFormStatus('Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.', 'success');
+      contactForm.reset();
+      if (formTimeInput) {
+        formTimeInput.value = String(Date.now());
+      }
+      return;
+    }
+
+    setFormStatus(getErrorText(payload.error), 'error');
+  } catch (error) {
+    setFormStatus(getErrorText('server_error'), 'error');
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = initialButtonText || 'Отправить заявку';
+    }
+  }
 });
