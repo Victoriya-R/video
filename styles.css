@@ -346,14 +346,6 @@ summary {
   box-shadow: none;
 }
 
-.cta-actions {
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.7rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .contact-quick-actions {
   margin-bottom: 1rem;
   display: flex;
