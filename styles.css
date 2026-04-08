@@ -1,11 +1,17 @@
 :root {
-  --bg: #0a0a0c;
-  --panel: #121216;
-  --panel-soft: #181821;
-  --text: #f5f5f7;
-  --muted: #a7a8b3;
-  --line: #24242c;
-  --accent: #d6b27f;
+  --bg: #f5f3ef;
+  --bg-soft: #fbfaf8;
+  --panel: #ffffff;
+  --panel-soft: #f6f3ee;
+  --text: #1f2328;
+  --muted: #68707a;
+  --line: #ddd6cc;
+  --line-strong: #cfc5b9;
+  --accent: #9a7a54;
+  --accent-soft: #e9ddcf;
+  --ink-inverse: #f5f3ef;
+  --shadow-soft: 0 14px 34px rgba(36, 27, 18, 0.08);
+  --shadow-card: 0 24px 50px rgba(20, 16, 11, 0.07);
   --max: 1200px;
 }
 
@@ -17,7 +23,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #111218, var(--bg) 55%);
+  background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 58%);
   color: var(--text);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
@@ -39,13 +45,15 @@ a {
   max-width: var(--max);
   margin: 0 auto;
   padding: 1rem 1.25rem;
-  backdrop-filter: blur(10px);
+  background: rgba(245, 243, 239, 0.84);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(207, 197, 185, 0.5);
 }
 
 .brand {
   font-family: Manrope, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.03em;
 }
 
 .nav {
@@ -57,7 +65,7 @@ a {
 
 .nav a:hover,
 .mobile-menu a:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .menu-toggle,
@@ -71,6 +79,12 @@ a {
   padding: 5.5rem 1.25rem;
 }
 
+.section:nth-of-type(even):not(.hero):not(.cta) {
+  background: var(--bg-soft);
+  border-top: 1px solid rgba(221, 214, 204, 0.5);
+  border-bottom: 1px solid rgba(221, 214, 204, 0.5);
+}
+
 .hero {
   min-height: 92vh;
   display: grid;
@@ -82,7 +96,7 @@ a {
 .eyebrow {
   color: var(--accent);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 0.78rem;
 }
@@ -101,7 +115,7 @@ h1 {
 }
 
 h1 span {
-  color: var(--accent);
+  color: #806240;
 }
 
 h2 {
@@ -111,6 +125,7 @@ h2 {
 .lead {
   max-width: 48ch;
   color: var(--muted);
+  font-size: 1.05rem;
 }
 
 .hero-actions {
@@ -126,7 +141,8 @@ h2 {
   border-radius: 999px;
   padding: 0.8rem 1.2rem;
   font-weight: 600;
-  transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+  transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease,
+    box-shadow 220ms ease;
   border: 1px solid transparent;
 }
 
@@ -135,22 +151,29 @@ h2 {
 }
 
 .btn-primary {
-  background: var(--text);
-  color: #101012;
+  background: #1f2328;
+  color: var(--ink-inverse);
+  box-shadow: 0 12px 24px rgba(18, 22, 28, 0.16);
 }
 
 .btn-ghost {
   border-color: var(--line);
   color: var(--text);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.btn-ghost:hover {
+  border-color: var(--line-strong);
+  background: #fff;
 }
 
 .video-frame {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   background: #000;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
   aspect-ratio: 16 / 10;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 28px 70px rgba(9, 11, 14, 0.32);
 }
 
 video {
@@ -196,6 +219,7 @@ details {
   background: linear-gradient(140deg, var(--panel), var(--panel-soft));
   border-radius: 22px;
   padding: 1.2rem;
+  box-shadow: var(--shadow-soft);
 }
 
 .portfolio-grid {
@@ -204,11 +228,20 @@ details {
 
 .portfolio-card {
   min-height: 180px;
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--line-strong);
 }
 
 .portfolio-card span {
   color: var(--accent);
   font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .filters {
@@ -219,7 +252,7 @@ details {
 }
 
 .filter-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.82);
   color: var(--muted);
   border: 1px solid var(--line);
   padding: 0.45rem 0.85rem;
@@ -228,12 +261,15 @@ details {
 }
 
 .filter-btn.active {
-  color: #111;
-  background: var(--text);
+  color: var(--ink-inverse);
+  background: #2a3038;
+  border-color: #2a3038;
 }
 
 .price-card.featured {
-  border-color: #57535f;
+  border-color: #9f8563;
+  background: linear-gradient(140deg, #fdfbf8, #f0e6d9);
+  box-shadow: 0 22px 44px rgba(116, 86, 54, 0.14);
 }
 
 .price-card ul {
@@ -273,6 +309,21 @@ summary {
 
 .cta {
   text-align: center;
+  border-radius: 28px;
+  margin: 1.5rem auto;
+  background: linear-gradient(130deg, #1f2328, #292f37);
+  color: var(--ink-inverse);
+  box-shadow: 0 30px 60px rgba(20, 24, 31, 0.34);
+}
+
+.cta p {
+  color: #d4d9e1;
+}
+
+.cta .btn-primary {
+  background: #f3ede5;
+  color: #242933;
+  box-shadow: none;
 }
 
 .contact-form {
@@ -291,11 +342,21 @@ input,
 select,
 textarea {
   border: 1px solid var(--line);
-  background: #0d0d11;
+  background: #fff;
   color: var(--text);
   border-radius: 14px;
   padding: 0.8rem;
   font: inherit;
+  transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ab8a64;
+  box-shadow: 0 0 0 4px rgba(154, 122, 84, 0.14);
+  background: #fffdfa;
 }
 
 .full {
@@ -310,6 +371,22 @@ textarea {
   justify-content: space-between;
   border-top: 1px solid var(--line);
   color: var(--muted);
+}
+
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem 0 auto auto;
+  width: min(540px, 58vw);
+  height: 340px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(233, 221, 207, 0.7), rgba(233, 221, 207, 0));
+  filter: blur(3px);
+  z-index: -1;
 }
 
 .footer div {
@@ -350,7 +427,7 @@ textarea {
   .menu-toggle {
     display: inline-flex;
     border: 1px solid var(--line);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.82);
     color: var(--text);
     border-radius: 999px;
     padding: 0.45rem 0.85rem;
@@ -365,7 +442,8 @@ textarea {
     margin: 0 1.25rem;
     border: 1px solid var(--line);
     border-radius: 16px;
-    background: #101018;
+    background: #fcfbf9;
+    box-shadow: var(--shadow-card);
     padding: 0.8rem;
     flex-direction: column;
     gap: 0.65rem;
